@@ -1,0 +1,103 @@
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>TrapDeadfall</defName>
+    <label>deadfall trap</label>
+    <thingClass>beta_traps.Building_TrapRearmable</thingClass>
+    <graphicData>
+      <texPath>Things/Buildings/Security/DeadfallArmed</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <rect>(0,0,1,0.15)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <drawerType>RealtimeOnly</drawerType>
+    <rotatable>false</rotatable>
+    <tickerType>Normal</tickerType>
+    <stealable>false</stealable>
+    <statBases>
+      <MaxHitPoints>40</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Beauty>-4</Beauty>
+      <TrapMeleeDamage>60</TrapMeleeDamage>
+      <TrapSpringChance>0.8</TrapSpringChance>
+    </statBases>
+    <description>A suspended spiked weight held up by a delicate trigger. When the victim disturbs the trigger, the weight is released and falls on his head or torso.</description>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>70</costStuffCount>
+    <designationCategory>Security</designationCategory>
+    <designationHotKey>Misc6</designationHotKey>
+    <building>
+      <isTrap>true</isTrap>
+      <trapDamageCategory>Sharp</trapDamageCategory>
+      <trapUnarmedGraphicData>
+        <texPath>Things/Buildings/Security/DeadfallUnarmed</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <shaderType>Cutout</shaderType>
+      </trapUnarmedGraphicData>
+    </building>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+
+    
+    
+  <DesignationDef>
+		<defName>RearmTrap</defName>
+		<texturePath>UI/Designators/RearmTrap</texturePath>
+		<targetType>Thing</targetType>
+	</DesignationDef>
+    
+  <DesignationCategoryDef>
+    <defName>Security</defName>
+    <label>security</label>
+    <order>300</order>
+    <specialDesignatorClasses>
+      <li>beta_traps.Designator_Rearm</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+
+  
+   <JobDef>
+    <defName>RearmTrapJob</defName>
+    <driverClass>beta_traps.JobDriver_RearmTrap</driverClass>
+    <reportString>rearming Target.</reportString>
+  </JobDef>
+  
+  <WorkGiverDef>
+    <defName>RearmTraps</defName>
+    <label>rearm traps</label>
+    <giverClass>beta_traps.WorkGiver_RearmTraps</giverClass>
+    <workType>Rearm</workType>
+    <verb>rearm</verb>
+    <gerund>rearming</gerund>
+    <priorityInType>50</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  
+  <WorkTypeDef>
+		<defName>Rearm</defName>
+		<labelShort>Rearm</labelShort>
+		<pawnLabel>Rearmer</pawnLabel>
+		<gerundLabel>Rearming trap</gerundLabel>
+		<description>Rearm used traps</description>
+		<verb>Rearm</verb>
+		<naturalPriority>1125</naturalPriority>
+		<alwaysStartActive>true</alwaysStartActive>
+	</WorkTypeDef>
+
+  
+  <RecordDef>
+    <defName>TrapsRearmed</defName>
+    <label>trapsRearmed</label>
+    <description>The number of traps I have rearmed.</description>
+    <type>Int</type>
+  </RecordDef>
+  
+
+</Defs>
