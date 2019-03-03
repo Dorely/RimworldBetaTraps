@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace beta_traps
+namespace BetaTraps
 {
     public class Building_TrapRearmable : Building_Trap
     {

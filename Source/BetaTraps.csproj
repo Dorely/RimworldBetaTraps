@@ -7,8 +7,8 @@
     <ProjectGuid>{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>beta_traps</RootNamespace>
-    <AssemblyName>beta_traps</AssemblyName>
+    <RootNamespace>BetaTraps</RootNamespace>
+    <AssemblyName>BetaTraps</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\beta_traps - Release\Assemblies\</OutputPath>
+    <OutputPath>..\..\BetaTraps - Release\Assemblies\</OutputPath>
     <DefineConstants>
     </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -47,15 +47,15 @@
       <Private>False</Private>
     </Reference>
     <None Include="..\About\**" />
-    <None Include="..\Defs\beta_traps.xml">
+    <None Include="..\Defs\BetaTraps.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="..\Languages\English\Keyed\beta_trapsEnglish.xml" />
+    <None Include="..\Languages\English\Keyed\BetaTrapsEnglish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\JobDriver_RearmTraps.cs" />
     <Compile Include="AI\WorkGiver_RearmTraps.cs" />
-    <Compile Include="Beta_Traps.cs" />
+    <Compile Include="BetaTraps.cs" />
     <Compile Include="Buildings\Building_Trap.cs" />
     <Compile Include="Buildings\Building_TrapRearmable.cs" />
     <Compile Include="Designators\Designator_Rearm.cs" />

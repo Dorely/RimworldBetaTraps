@@ -6,7 +6,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace beta_traps
+namespace BetaTraps
 {
     public class WorkGiver_RearmTraps : WorkGiver_Scanner
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 
-namespace beta_traps
+namespace BetaTraps
 {
     public class Designator_Rearm : Designator
     {

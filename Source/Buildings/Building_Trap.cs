@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse.AI.Group;
 using Verse.Sound;
 
-namespace beta_traps
+namespace BetaTraps
 {
     public abstract class Building_Trap : Building
     {

@@ -2,7 +2,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>TrapDeadfall</defName>
     <label>deadfall trap</label>
-    <thingClass>beta_traps.Building_TrapRearmable</thingClass>
+    <thingClass>BetaTraps.Building_TrapRearmable</thingClass>
     <graphicData>
       <texPath>Things/Buildings/Security/DeadfallArmed</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -56,21 +56,21 @@
     <label>security</label>
     <order>300</order>
     <specialDesignatorClasses>
-      <li>beta_traps.Designator_Rearm</li>
+      <li>BetaTraps.Designator_Rearm</li>
     </specialDesignatorClasses>
   </DesignationCategoryDef>
 
   
    <JobDef>
     <defName>RearmTrapJob</defName>
-    <driverClass>beta_traps.JobDriver_RearmTrap</driverClass>
+    <driverClass>BetaTraps.JobDriver_RearmTrap</driverClass>
     <reportString>rearming Target.</reportString>
   </JobDef>
   
   <WorkGiverDef>
     <defName>RearmTraps</defName>
     <label>rearm traps</label>
-    <giverClass>beta_traps.WorkGiver_RearmTraps</giverClass>
+    <giverClass>BetaTraps.WorkGiver_RearmTraps</giverClass>
     <workType>Rearm</workType>
     <verb>rearm</verb>
     <gerund>rearming</gerund>

@@ -5,7 +5,7 @@ using System.Text;
 using RimWorld;
 using Verse;
 
-namespace beta_traps
+namespace BetaTraps
 {
     [DefOf]
     public static class BetaTrapDefOf
