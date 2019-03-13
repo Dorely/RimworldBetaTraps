@@ -62,8 +62,16 @@ namespace BetaTraps
             }
             if (this.autoRearm)
             {
-                base.Map.designationManager.AddDesignation(new Designation(this, BetaTrapDefOf.RearmTrap));
+                if (canBeDesignatedRearm())
+                {
+                    base.Map.designationManager.AddDesignation(new Designation(this, BetaTrapDefOf.RearmTrap));
+                }
             }
+        }
+
+        private bool canBeDesignatedRearm()
+        {
+            return !armedInt && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == BetaTrapDefOf.RearmTrap).FirstOrDefault() == null;
         }
         
         public void Rearm()
@@ -111,7 +119,7 @@ namespace BetaTraps
                     this.autoRearm = !this.autoRearm;
                 }
             };
-            if (!armedInt && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == BetaTrapDefOf.RearmTrap).FirstOrDefault() == null)
+            if (canBeDesignatedRearm())
             {
                 yield return new Command_Action
                 {
