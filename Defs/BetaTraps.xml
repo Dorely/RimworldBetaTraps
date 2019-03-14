@@ -71,7 +71,7 @@
     <defName>RearmTraps</defName>
     <label>rearm traps</label>
     <giverClass>BetaTraps.WorkGiver_RearmTraps</giverClass>
-    <workType>Rearming</workType>
+    <workType>Rearm</workType>
     <verb>rearm</verb>
     <gerund>rearming</gerund>
     <priorityInType>50</priorityInType>
@@ -81,7 +81,7 @@
   </WorkGiverDef>
   
   <WorkTypeDef>
-		<defName>Rearming</defName>
+		<defName>Rearm</defName>
 		<labelShort>Rearm</labelShort>
 		<pawnLabel>Rearmer</pawnLabel>
 		<gerundLabel>Rearming trap</gerundLabel>
