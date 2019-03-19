@@ -67,15 +67,31 @@ namespace BetaTraps
             if (this.KnowsOfTrap(p))
             {
                 num = 0.004f;
+                if (!BetaTrapsSettings.getFriendlyFireSettingValue())
+                {
+                    num = 0f;
+                }
             }
             else
             {
                 num = this.GetStatValue(StatDefOf.TrapSpringChance, true);
             }
-            num *= GenMath.LerpDouble(0.4f, 0.8f, 0f, 1f, p.BodySize);
-            if (p.RaceProps.Animal)
+
+            if (!BetaTrapsSettings.getUseBodySizeValue())
             {
-                num *= 0.1f;
+                num *= GenMath.LerpDouble(0.4f, 0.8f, 0f, 1f, 1f);
+            }
+            else
+            {
+                num *= GenMath.LerpDouble(0.4f, 0.8f, 0f, 1f, p.BodySize);
+            }
+
+            if (BetaTrapsSettings.getAnimalSpringSettingValue())
+            {
+                if (p.RaceProps.Animal)
+                {
+                    num *= 0.1f;
+                }
             }
             return Mathf.Clamp01(num);
         }
