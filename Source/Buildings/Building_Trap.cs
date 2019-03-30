@@ -117,6 +117,10 @@ namespace BetaTraps
             }
             if (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState)
             {
+                if (BetaTrapsSettings.getWildAnimalsCanTripValue())
+                {
+                    return false;
+                }
                 return true;
             }
             if (p.guest != null && p.guest.Released)

@@ -25,12 +25,14 @@ namespace BetaTraps
         public static Func<bool> getFriendlyFireSettingValue;
         public static Func<bool> getAnimalSpringSettingValue;
         public static Func<bool> getUseBodySizeValue;
+        public static Func<bool> getWildAnimalsCanTripValue;
 
         static BetaTrapsSettings()
         {
             InitializeFriendlyFireSetting();
             InitializeAnimalSpringSetting();
             InitializeUseBodySizeSetting();
+            InitializeWildAnimalsCanTripSetting();
         }
 
         private static void InitializeFriendlyFireSetting()
@@ -88,6 +90,25 @@ namespace BetaTraps
             {
             }
             getUseBodySizeValue = () => defaultValue;
+        }
+
+        private static void InitializeWildAnimalsCanTripSetting()
+        {
+            const bool defaultValue = false;
+            try
+            {
+                ((Action)(() => {
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
+                    object handle = settings.GetHandle("wildAnimalsCanTrip", "Wild Animals Can Trip", "Let non hostile wild animals be unaware of traps", defaultValue);
+                    getWildAnimalsCanTripValue = () => (SettingHandle<bool>)handle;
+                }))();
+                return;
+            }
+            catch (TypeLoadException)
+            {
+            }
+            getWildAnimalsCanTripValue = () => defaultValue;
         }
     }
 
