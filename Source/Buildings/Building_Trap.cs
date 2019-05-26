@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse.AI.Group;
 using Verse.Sound;
+using System.Diagnostics;
 
 namespace BetaTraps
 {
@@ -20,6 +21,7 @@ namespace BetaTraps
         private const ushort KnowerPathWalkCost = 30;
         
         private const float AnimalSpringChanceFactor = 0.1f;
+        protected float ArmorPenetrationAmount = 0.015f;
 
         public virtual bool Armed
         {
@@ -37,6 +39,12 @@ namespace BetaTraps
         
         public override void Tick()
         {
+
+            if (this.def.HasModExtension<BetaTrapDefModExtension>())
+            {
+                ArmorPenetrationAmount = this.def.GetModExtension<BetaTrapDefModExtension>().TrapArmorPenetration;
+            }
+
             if (this.Armed)
             {
                 List<Thing> thingList = base.Position.GetThingList(base.Map);
@@ -183,11 +191,21 @@ namespace BetaTraps
         public void Spring(Pawn p)
         {
             SoundDef.Named("DeadfallSpring").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-            //if (p != null && p.Faction != null)
-            //{
-            //    p.Faction.TacticalMemory.TrapRevealed(base.Position, base.Map);
-            //}
             this.SpringSub(p);
+        }
+
+        //[DebuggerHidden]
+        //public virtual IEnumerable<StatDrawEntry> SpecialDisplayStats();
+        [DebuggerHidden]
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+        {
+            foreach (StatDrawEntry s in base.SpecialDisplayStats())
+            {
+                yield return s;
+            }
+
+            yield return new StatDrawEntry(StatCategoryDefOf.Building, "TrapArmorPenetration".Translate(), ArmorPenetrationAmount.ToStringPercent(), 0, string.Empty);
+            
         }
     }
 

@@ -22,6 +22,11 @@
       <TrapMeleeDamage>60</TrapMeleeDamage>
       <TrapSpringChance>0.8</TrapSpringChance>
     </statBases>
+    <modExtensions>
+      <li Class="BetaTraps.BetaTrapDefModExtension">
+        <TrapArmorPenetration>0.015</TrapArmorPenetration>
+      </li>
+    </modExtensions>
     <description>A suspended spiked weight held up by a delicate trigger. When the victim disturbs the trigger, the weight is released and falls on his head or torso.</description>
     <stuffCategories>
       <li>Metallic</li>

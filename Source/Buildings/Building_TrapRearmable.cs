@@ -19,7 +19,6 @@ namespace BetaTraps
 
         private static readonly IntRange DamageCount = new IntRange(1, 2);
 
-        
 
         public override bool Armed
         {
@@ -77,7 +76,6 @@ namespace BetaTraps
         public void Rearm()
         {
             this.armedInt = true;
-            //SoundDef.Named("TrapArm").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
         }
         
         private void DamagePawn(Pawn p)
@@ -85,7 +83,10 @@ namespace BetaTraps
             BodyPartHeight height = (Rand.Value >= 0.666f) ? BodyPartHeight.Middle : BodyPartHeight.Top;
             float num = this.GetStatValue(StatDefOf.TrapMeleeDamage, true) * Building_TrapRearmable.TrapDamageFactor.RandomInRange;
             float num2 = num / Building_TrapRearmable.DamageCount.RandomInRange;
-            float armorPenetration = num2 * 0.015f;
+
+            
+
+            float armorPenetration = num2 * ArmorPenetrationAmount;
             int num3 = 0;
             while ((float)num3 < Building_TrapRearmable.DamageCount.RandomInRange)
             {

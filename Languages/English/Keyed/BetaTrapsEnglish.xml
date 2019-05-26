@@ -10,4 +10,5 @@
   <CommandRearmDesc>Rearm a sprung trap so it can be triggered again.</CommandRearmDesc>
   <TrapArmed>Armed</TrapArmed>
   <TrapNotArmed>Not armed</TrapNotArmed>
+  <TrapArmorPenetration>Trap Armor Penetration</TrapArmorPenetration>
 </LanguageData>

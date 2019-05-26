@@ -18,6 +18,10 @@ namespace BetaTraps
         public static RecordDef TrapsRearmed;
     }
 
+    public class BetaTrapDefModExtension : DefModExtension
+    {
+        public float TrapArmorPenetration = 0.015f;
+    }
 
     [StaticConstructorOnStartup]
     public class BetaTrapsSettings
@@ -110,6 +114,7 @@ namespace BetaTraps
             }
             getWildAnimalsCanTripValue = () => defaultValue;
         }
+
     }
 
 
