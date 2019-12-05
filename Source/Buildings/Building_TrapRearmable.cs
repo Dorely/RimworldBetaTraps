@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using Multiplayer.API;
+using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,8 +10,10 @@ namespace BetaTraps
 {
     public class Building_TrapRearmable : Building_Trap
     {
+        [SyncField]
         private bool autoRearm;
 
+        [SyncField]
         private bool armedInt = true;
 
         private Graphic graphicUnarmedInt;
@@ -50,7 +53,8 @@ namespace BetaTraps
             Scribe_Values.Look<bool>(ref this.armedInt, "armed", false, false);
             Scribe_Values.Look<bool>(ref this.autoRearm, "autoRearm", false, false);
         }
-        
+
+        [SyncMethod]
         protected override void SpringSub(Pawn p)
         {
             SoundDefOf.TrapSpring.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
@@ -73,6 +77,7 @@ namespace BetaTraps
             return !armedInt && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == BetaTrapDefOf.RearmTrap).FirstOrDefault() == null;
         }
         
+        [SyncMethod]
         public void Rearm()
         {
             this.armedInt = true;
@@ -115,10 +120,7 @@ namespace BetaTraps
                 hotKey = KeyBindingDefOf.Misc3,
                 icon = TexCommand.RearmTrap,
                 isActive = (() => this.autoRearm),
-                toggleAction = delegate ()
-                {
-                    this.autoRearm = !this.autoRearm;
-                }
+                toggleAction = ToggleAutoRearm
             };
             if (canBeDesignatedRearm())
             {
@@ -128,14 +130,22 @@ namespace BetaTraps
                     defaultDesc = "CommandRearmDesc".Translate(),
                     hotKey = KeyBindingDefOf.Misc4,
                     icon = TexCommand.RearmTrap,
-                    action = delegate ()
-                    {
-                        base.Map.designationManager.AddDesignation(new Designation(this, BetaTrapDefOf.RearmTrap));
-                    }
-
+                    action = AddRearmDesignation
                 };
             }
             yield break;
+        }
+
+        [SyncMethod]
+        public void ToggleAutoRearm()
+        {
+            this.autoRearm = !this.autoRearm;
+        }
+
+        [SyncMethod]
+        public void AddRearmDesignation()
+        {
+            base.Map.designationManager.AddDesignation(new Designation(this, BetaTrapDefOf.RearmTrap));
         }
         
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 using Verse.AI.Group;
 using Verse.Sound;
 using System.Diagnostics;
+using Multiplayer.API;
 
 namespace BetaTraps
 {
@@ -160,6 +161,10 @@ namespace BetaTraps
             }
             if (this.KnowsOfTrap(p))
             {
+                if (BetaTrapsSettings.getSuperSlowTraps())
+                {
+                    return 300;
+                }
                 return 30;
             }
             return 0;
@@ -188,14 +193,13 @@ namespace BetaTraps
             return text;
         }
         
+        [SyncMethod]
         public void Spring(Pawn p)
         {
             SoundDef.Named("DeadfallSpring").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
             this.SpringSub(p);
         }
 
-        //[DebuggerHidden]
-        //public virtual IEnumerable<StatDrawEntry> SpecialDisplayStats();
         [DebuggerHidden]
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
         {

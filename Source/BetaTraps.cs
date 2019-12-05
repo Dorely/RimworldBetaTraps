@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Harmony;
 using HugsLib;
 using HugsLib.Settings;
+using Multiplayer.API;
 using RimWorld;
 using Verse;
 
@@ -23,13 +25,28 @@ namespace BetaTraps
         public float TrapArmorPenetration = 0.015f;
     }
 
+
+    [StaticConstructorOnStartup]
+    public class BetaTrapsMultiplayerCompat
+    {
+        static BetaTrapsMultiplayerCompat()
+        {
+            if (!MP.enabled)
+                return;
+
+            MP.RegisterAll();
+        }
+    }
+
     [StaticConstructorOnStartup]
     public class BetaTrapsSettings
     {
+
         public static Func<bool> getFriendlyFireSettingValue;
         public static Func<bool> getAnimalSpringSettingValue;
         public static Func<bool> getUseBodySizeValue;
         public static Func<bool> getWildAnimalsCanTripValue;
+        public static Func<bool> getSuperSlowTraps;
 
         static BetaTrapsSettings()
         {
@@ -37,6 +54,7 @@ namespace BetaTraps
             InitializeAnimalSpringSetting();
             InitializeUseBodySizeSetting();
             InitializeWildAnimalsCanTripSetting();
+            InitializeSuperSlowTraps();
         }
 
         private static void InitializeFriendlyFireSetting()
@@ -113,6 +131,25 @@ namespace BetaTraps
             {
             }
             getWildAnimalsCanTripValue = () => defaultValue;
+        }
+
+        private static void InitializeSuperSlowTraps()
+        {
+            const bool defaultValue = false;
+            try
+            {
+                ((Action)(() => {
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
+                    object handle = settings.GetHandle("superSlowTraps", "Super Slow Traps", "Increase the speed reduction effect by 10x", defaultValue);
+                    getSuperSlowTraps = () => (SettingHandle<bool>)handle;
+                }))();
+                return;
+            }
+            catch (TypeLoadException)
+            {
+            }
+            getSuperSlowTraps = () => defaultValue;
         }
 
     }
