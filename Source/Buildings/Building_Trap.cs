@@ -208,8 +208,9 @@ namespace BetaTraps
                 yield return s;
             }
 
-            yield return new StatDrawEntry(StatCategoryDefOf.Building, "TrapArmorPenetration".Translate(), ArmorPenetrationAmount.ToStringPercent(), 0, string.Empty);
-            
+            //yield return new StatDrawEntry(StatCategoryDefOf.Building, "TrapArmorPenetration".Translate(), ArmorPenetrationAmount.ToStringPercent(), 0, string.Empty);
+            yield return new StatDrawEntry(StatCategoryDefOf.Building, "TrapArmorPenetration".Translate(), ArmorPenetrationAmount.ToStringPercent(), ArmorPenetrationAmount.ToStringPercent(), 0);
+
         }
     }
 
