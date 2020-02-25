@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!--<CommandAutoRearm>Auto Rearm</CommandAutoRearm>
+  <CommandAutoRearmDesc>If this is on, this trap will automatically be designated for rearming when it springs.</CommandAutoRearmDesc>
+  <LetterFriendlyTrapSprungLabel>{1_labelShort} hit trap</LetterFriendlyTrapSprungLabel>
+  <LetterFriendlyTrapSprung>{1_labelShort} has accidentally sprung a trap and taken damage from it.</LetterFriendlyTrapSprung>-->
+  <DesignatorRearmTrap>Rearm trap</DesignatorRearmTrap>
+  <DesignatorRearmTrapDesc>Rearm a sprung trap so it can be triggered again.</DesignatorRearmTrapDesc>
+  <CommandRearm>Rearm Trap</CommandRearm>
+  <CommandRearmDesc>Rearm a sprung trap so it can be triggered again.</CommandRearmDesc>
+  <TrapArmed>Armed</TrapArmed>
+  <TrapNotArmed>Not armed</TrapNotArmed>
+</LanguageData>
