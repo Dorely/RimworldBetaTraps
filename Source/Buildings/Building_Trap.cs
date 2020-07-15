@@ -161,6 +161,11 @@ namespace BetaTraps
             }
             if (this.KnowsOfTrap(p))
             {
+                if (BetaTrapsSettings.getTrapsDontSlow())
+                {
+                    return 0;
+                }
+
                 if (BetaTrapsSettings.getSuperSlowTraps())
                 {
                     return 300;

@@ -47,6 +47,7 @@ namespace BetaTraps
         public static Func<bool> getUseBodySizeValue;
         public static Func<bool> getWildAnimalsCanTripValue;
         public static Func<bool> getSuperSlowTraps;
+        public static Func<bool> getTrapsDontSlow;
 
         static BetaTrapsSettings()
         {
@@ -55,6 +56,7 @@ namespace BetaTraps
             InitializeUseBodySizeSetting();
             InitializeWildAnimalsCanTripSetting();
             InitializeSuperSlowTraps();
+            InitializeTrapsDontSlow();
         }
 
         private static void InitializeFriendlyFireSetting()
@@ -150,6 +152,25 @@ namespace BetaTraps
             {
             }
             getSuperSlowTraps = () => defaultValue;
+        }
+
+        private static void InitializeTrapsDontSlow()
+        {
+            const bool defaultValue = false;
+            try
+            {
+                ((Action)(() => {
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
+                    object handle = settings.GetHandle("trapsDontSlow", "Traps Don't slow", "Removes the speed reduction caused by active traps", defaultValue);
+                    getTrapsDontSlow = () => (SettingHandle<bool>)handle;
+                }))();
+                return;
+            }
+            catch (TypeLoadException)
+            {
+            }
+            getTrapsDontSlow = () => defaultValue;
         }
 
     }
