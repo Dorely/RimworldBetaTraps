@@ -67,7 +67,7 @@ namespace BetaTraps
                 ((Action)(() => {
                     var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
                     settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("friendlyFire", "Friendly Fire", "If traps should be able to hit friendly pawns", defaultValue);
+                    object handle = settings.GetHandle("friendlyFire", "FriendlyFireLabel".Translate(), "FriendlyFireDesc".Translate(), defaultValue);
                     getFriendlyFireSettingValue = () => (SettingHandle<bool>)handle;
                 }))();
                 return;
@@ -86,7 +86,7 @@ namespace BetaTraps
                 ((Action)(() => {
                     var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
                     settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("treatAnimalsDifferent", "Treat Animals Different", "If animal spring chance should be calculated differently than for pawns", defaultValue);
+                    object handle = settings.GetHandle("treatAnimalsDifferent", "TreatAnimalsDifferentLabel".Translate(), "TreatAnimalsDifferentDesc".Translate(), defaultValue);
                     getAnimalSpringSettingValue = () => (SettingHandle<bool>)handle;
                 }))();
                 return;
@@ -105,7 +105,7 @@ namespace BetaTraps
                 ((Action)(() => {
                     var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
                     settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("useBodySize", "Use Body Size", "Use body size in calculation or not", defaultValue);
+                    object handle = settings.GetHandle("useBodySize", "UseBodySizeLabel".Translate(), "UseBodySizeDesc".Translate(), defaultValue);
                     getUseBodySizeValue = () => (SettingHandle<bool>)handle;
                 }))();
                 return;
@@ -124,7 +124,7 @@ namespace BetaTraps
                 ((Action)(() => {
                     var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
                     settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("wildAnimalsCanTrip", "Wild Animals Can Trip", "Let non hostile wild animals be unaware of traps", defaultValue);
+                    object handle = settings.GetHandle("wildAnimalsCanTrip", "WildAnimalsCanTripLabel".Translate(), "WildAnimalsCanTripDesc".Translate(), defaultValue);
                     getWildAnimalsCanTripValue = () => (SettingHandle<bool>)handle;
                 }))();
                 return;
@@ -143,7 +143,7 @@ namespace BetaTraps
                 ((Action)(() => {
                     var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
                     settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("superSlowTraps", "Super Slow Traps", "Increase the speed reduction effect by 10x", defaultValue);
+                    object handle = settings.GetHandle("superSlowTraps", "SuperSlowTrapsLabel".Translate(), "SuperSlowTrapsDesc".Translate(), defaultValue);
                     getSuperSlowTraps = () => (SettingHandle<bool>)handle;
                 }))();
                 return;
@@ -162,7 +162,7 @@ namespace BetaTraps
                 ((Action)(() => {
                     var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
                     settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("trapsDontSlow", "Traps Don't slow", "Removes the speed reduction caused by active traps", defaultValue);
+                    object handle = settings.GetHandle("trapsDontSlow", "TrapsDontSlowLabel".Translate(), "TrapsDontSlowDesc".Translate(), defaultValue);
                     getTrapsDontSlow = () => (SettingHandle<bool>)handle;
                 }))();
                 return;

@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  <!--<CommandAutoRearm>Auto Rearm</CommandAutoRearm>
+  <CommandAutoRearm>Auto Rearm</CommandAutoRearm>
   <CommandAutoRearmDesc>If this is on, this trap will automatically be designated for rearming when it springs.</CommandAutoRearmDesc>
   <LetterFriendlyTrapSprungLabel>{1_labelShort} hit trap</LetterFriendlyTrapSprungLabel>
-  <LetterFriendlyTrapSprung>{1_labelShort} has accidentally sprung a trap and taken damage from it.</LetterFriendlyTrapSprung>-->
+  <LetterFriendlyTrapSprung>{1_labelShort} has accidentally sprung a trap and taken damage from it.</LetterFriendlyTrapSprung>
   <DesignatorRearmTrap>Rearm trap</DesignatorRearmTrap>
   <DesignatorRearmTrapDesc>Rearm a sprung trap so it can be triggered again.</DesignatorRearmTrapDesc>
   <CommandRearm>Rearm Trap</CommandRearm>
   <CommandRearmDesc>Rearm a sprung trap so it can be triggered again.</CommandRearmDesc>
+  <CommandAutoRearm>Auto Rearm</CommandAutoRearm>
+  <CommandAutoRearmDesc>Toggle a trap to auto designate itself for rearming.</CommandAutoRearmDesc>
   <TrapArmed>Armed</TrapArmed>
   <TrapNotArmed>Not armed</TrapNotArmed>
+  <FriendlyFireLabel>Friendly Fire</FriendlyFireLabel>
+  <FriendlyFireDesc>If traps should be able to hit friendly pawns</FriendlyFireDesc>
+  <TreatAnimalsDifferentLabel>Treat Animals Different</TreatAnimalsDifferentLabel>
+  <TreatAnimalsDifferentDesc>If animal spring chance should be calculated differently than for pawns</TreatAnimalsDifferentDesc>
+  <UseBodySizeLabel>Use Body Size</UseBodySizeLabel>
+  <UseBodySizeDesc>Use body size in calculation or not</UseBodySizeDesc>
+  <WildAnimalsCanTripLabel>Wild Animals Can Trip</WildAnimalsCanTripLabel>
+  <WildAnimalsCanTripDesc>Let non hostile wild animals be unaware of traps</WildAnimalsCanTripDesc>
+  <SuperSlowTrapsLabel>Super Slow Traps</SuperSlowTrapsLabel>
+  <SuperSlowTrapsDesc>Increase the speed reduction effect by 10x</SuperSlowTrapsDesc>
+  <TrapsDontSlowLabel>Traps Don't slow</TrapsDontSlowLabel>
+  <TrapsDontSlowDesc>Removes the speed reduction caused by active traps</TrapsDontSlowDesc>
 </LanguageData>
