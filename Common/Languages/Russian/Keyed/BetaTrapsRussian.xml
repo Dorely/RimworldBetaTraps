@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CommandAutoRearm>Авто перезарядка</CommandAutoRearm>
+  <CommandAutoRearmDesc>Если включено, то капкан автоматически помечаеться на перезарядку, после срабатывания.</CommandAutoRearmDesc>
+  <LetterFriendlyTrapSprungLabel>{1_labelShort} попал(а) в капкан</LetterFriendlyTrapSprungLabel>
+  <LetterFriendlyTrapSprung>{1_labelShort} случайно активировал(а) капкан и получил(а) от него урон.</LetterFriendlyTrapSprung>
+  <DesignatorRearmTrap>Перезарядить капкан</DesignatorRearmTrap>
+  <DesignatorRearmTrapDesc>Перезарядить капкан, что бы он мог ещё раз сработать.</DesignatorRearmTrapDesc>
+  <CommandRearm>Перезарядить капкан</CommandRearm>
+  <CommandRearmDesc>Перезарядить капкан, что бы он мог ещё раз сработать.</CommandRearmDesc>
+  <CommandAutoRearm>Авто перезарядка</CommandAutoRearm>
+  <CommandAutoRearmDesc>Если включено, то капкан автоматически помечаеться на перезарядку, после срабатывания.</CommandAutoRearmDesc>
+  <TrapArmed>Заряжен</TrapArmed>
+  <TrapNotArmed>Не заряжен</TrapNotArmed>
+  <FriendlyFireLabel>Огонь по своим</FriendlyFireLabel>
+  <FriendlyFireDesc>Должны ли капканы срабатывать на дружеских колонистах.</FriendlyFireDesc>
+  <TreatAnimalsDifferentLabel>Относитесь к животным по-разному</TreatAnimalsDifferentLabel>
+  <TreatAnimalsDifferentDesc>Будет ли капкан срабатывать на животных с  дополнительным шансом 10%.</TreatAnimalsDifferentDesc>
+  <UseBodySizeLabel>Влияет ли размер тела</UseBodySizeLabel>
+  <UseBodySizeDesc>Будет ли влиять размер тела или нет.</UseBodySizeDesc>
+  <WildAnimalsCanTripLabel>Капканы против диких животных</WildAnimalsCanTripLabel>
+  <WildAnimalsCanTripDesc>Будут ли дикие животные ходить по капканам, не пытаясь обойти их.</WildAnimalsCanTripDesc>
+  <SuperSlowTrapsLabel>Супер замедляющие капканы</SuperSlowTrapsLabel>
+  <SuperSlowTrapsDesc>Замедляет передвижение по ловушке в 10 раз.</SuperSlowTrapsDesc>
+  <TrapsDontSlowLabel>Капканы не замедляют</TrapsDontSlowLabel>
+  <TrapsDontSlowDesc>Убирает снижение скорости, вызванное активными капканами.</TrapsDontSlowDesc>
+
+</LanguageData>
