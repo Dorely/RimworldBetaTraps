@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Rearm.label>Перезарядка</Rearm.label>
+  <Rearm.description>Перезарядка сработавших капканов</Rearm.description>
+  <Rearm.labelShort>Перезарядка</Rearm.labelShort>
+  <Rearm.pawnLabel>Перезарядка</Rearm.pawnLabel>
+  <Rearm.gerundLabel>Перезарядить капкан</Rearm.gerundLabel>
+  <Rearm.verb>Перезарядка</Rearm.verb>
+
+
+</LanguageData>
