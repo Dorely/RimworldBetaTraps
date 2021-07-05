@@ -101,8 +101,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)..\Common\Assemblies\BetaTraps.dll" "$(ProjectDir)..\1.1\Assemblies\" /S /C /Y /K /I /Q /D
-xcopy "$(ProjectDir)..\Common\Assemblies\BetaTraps.dll" "$(ProjectDir)..\1.2\Assemblies\" /S /C /Y /K /I /Q /D
+    <PostBuildEvent>xcopy "$(ProjectDir)..\Common\Assemblies\BetaTraps.dll" "$(ProjectDir)..\1.3\Assemblies\" /S /C /Y /K /I /Q /D
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
