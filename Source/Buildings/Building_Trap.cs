@@ -41,33 +41,37 @@ namespace BetaTraps
         public override void Tick()
         {
 
-            if (this.def.HasModExtension<BetaTrapDefModExtension>())
+            if (this.Spawned)
             {
-                ArmorPenetrationAmount = this.def.GetModExtension<BetaTrapDefModExtension>().TrapArmorPenetration;
-            }
-
-            if (this.Armed)
-            {
-                List<Thing> thingList = base.Position.GetThingList(base.Map);
-                for (int i = 0; i < thingList.Count; i++)
+                if (this.def.HasModExtension<BetaTrapDefModExtension>())
                 {
-                    Pawn pawn = thingList[i] as Pawn;
-                    if (pawn != null && !this.touchingPawns.Contains(pawn))
+                    ArmorPenetrationAmount = this.def.GetModExtension<BetaTrapDefModExtension>().TrapArmorPenetration;
+                }
+
+                if (this.Armed)
+                {
+                    List<Thing> thingList = base.Position.GetThingList(base.Map);
+                    for (int i = 0; i < thingList.Count; i++)
                     {
-                        this.touchingPawns.Add(pawn);
-                        this.CheckSpring(pawn);
+                        Pawn pawn = thingList[i] as Pawn;
+                        if (pawn != null && !this.touchingPawns.Contains(pawn))
+                        {
+                            this.touchingPawns.Add(pawn);
+                            this.CheckSpring(pawn);
+                        }
+                    }
+                }
+                for (int j = 0; j < this.touchingPawns.Count; j++)
+                {
+                    Pawn pawn2 = this.touchingPawns[j];
+                    if (!pawn2.Spawned || pawn2.Position != base.Position)
+                    {
+                        this.touchingPawns.Remove(pawn2);
                     }
                 }
             }
-            for (int j = 0; j < this.touchingPawns.Count; j++)
-            {
-                Pawn pawn2 = this.touchingPawns[j];
-                if (!pawn2.Spawned || pawn2.Position != base.Position)
-                {
-                    this.touchingPawns.Remove(pawn2);
-                }
-            }
             base.Tick();
+
         }
         
         protected virtual float SpringChance(Pawn p)

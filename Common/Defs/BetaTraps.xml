@@ -58,6 +58,10 @@
         <rect>(0,0,1,0.15)</rect>
       </damageData>
     </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
     <altitudeLayer>Building</altitudeLayer>
     <drawerType>RealtimeOnly</drawerType>
     <rotatable>false</rotatable>
@@ -69,6 +73,7 @@
       <Beauty>-4</Beauty>
       <TrapMeleeDamage>60</TrapMeleeDamage>
       <TrapSpringChance>0.8</TrapSpringChance>
+      <Mass>8</Mass>
     </statBases>
     <modExtensions>
       <li Class="BetaTraps.BetaTrapDefModExtension">
