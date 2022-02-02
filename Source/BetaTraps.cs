@@ -48,6 +48,7 @@ namespace BetaTraps
         public static Func<bool> getWildAnimalsCanTripValue;
         public static Func<bool> getSuperSlowTraps;
         public static Func<bool> getTrapsDontSlow;
+        public static Func<int> getRearmValue;
 
         static BetaTrapsSettings()
         {
@@ -57,6 +58,7 @@ namespace BetaTraps
             InitializeWildAnimalsCanTripSetting();
             InitializeSuperSlowTraps();
             InitializeTrapsDontSlow();
+            InitializeRearmValue();
         }
 
         private static void InitializeFriendlyFireSetting()
@@ -171,6 +173,26 @@ namespace BetaTraps
             {
             }
             getTrapsDontSlow = () => defaultValue;
+        }
+
+        private static void InitializeRearmValue()
+        {
+            const int defaultValue = 1125;
+            try
+            {
+                ((Action)(() => {
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
+                    var handle = settings.GetHandle("RearmTicks", "RearmTicksLabel".Translate(), "RearmTicksDesc".Translate(), defaultValue, Validators.IntRangeValidator(1, 9999));
+                    handle.SpinnerIncrement = 25;
+                    getRearmValue = () => handle;
+                }))();
+                return;
+            }
+            catch (TypeLoadException)
+            {
+            }
+            getRearmValue = () => defaultValue;
         }
 
     }

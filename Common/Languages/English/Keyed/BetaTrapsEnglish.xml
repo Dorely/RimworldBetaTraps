@@ -24,4 +24,6 @@
   <SuperSlowTrapsDesc>Increase the speed reduction effect by 10x</SuperSlowTrapsDesc>
   <TrapsDontSlowLabel>Traps Don't slow</TrapsDontSlowLabel>
   <TrapsDontSlowDesc>Removes the speed reduction caused by active traps</TrapsDontSlowDesc>
+  <RearmTicksLabel>Rearm Speed</RearmTicksLabel>
+  <RearmTicksDesc>Amount of ticks taken to rearm a trap</RearmTicksDesc>
 </LanguageData>

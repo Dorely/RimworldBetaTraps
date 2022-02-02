@@ -10,7 +10,7 @@ namespace BetaTraps
 {
     public class JobDriver_RearmTrap : JobDriver
     {
-        private const int RearmTicks = 1125;
+        private int RearmTicks { get => BetaTrapsSettings.getRearmValue(); }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {

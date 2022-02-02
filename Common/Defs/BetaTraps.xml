@@ -74,6 +74,7 @@
       <TrapMeleeDamage>60</TrapMeleeDamage>
       <TrapSpringChance>0.8</TrapSpringChance>
       <Mass>8</Mass>
+      <Flammability>1.0</Flammability>
     </statBases>
     <modExtensions>
       <li Class="BetaTraps.BetaTrapDefModExtension">
