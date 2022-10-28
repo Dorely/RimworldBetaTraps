@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Harmony;
-using HugsLib;
+﻿using HugsLib;
 using HugsLib.Settings;
 using Multiplayer.API;
 using RimWorld;
+using System;
 using Verse;
 
 namespace BetaTraps
