@@ -36,8 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.2.2\lib\net472\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.3.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.3.1.1\lib\net472\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="0MultiplayerAPI">
       <HintPath>..\..\..\..\..\..\..\..\Users\jonth\source\repos\RimWorld-Multiplayer-Compatibility\Assemblies\0MultiplayerAPI.dll</HintPath>
@@ -99,7 +99,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(ProjectDir)..\Common\Assemblies\BetaTraps.dll" "$(ProjectDir)..\1.4\Assemblies\" /S /C /Y /K /I /Q /D
+    <PostBuildEvent>xcopy "$(ProjectDir)..\Common\Assemblies\BetaTraps.dll" "$(ProjectDir)..\1.5\Assemblies\" /S /C /Y /K /I /Q /D
 del "$(ProjectDir)..\Common\Assemblies\Hugslib*" /q/f
 del "$(ProjectDir)..\Common\Assemblies\0Harmony*" /q/f
 </PostBuildEvent>
