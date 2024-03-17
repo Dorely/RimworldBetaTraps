@@ -12,14 +12,14 @@
   <CommandAutoRearmDesc>Toggle a trap to auto designate itself for rearming.</CommandAutoRearmDesc>
   <TrapArmed>Armed</TrapArmed>
   <TrapNotArmed>Not armed</TrapNotArmed>
-  <FriendlyFireLabel>Friendly Fire</FriendlyFireLabel>
+  <FriendlyFireLabel>Friendly Fire Enabled</FriendlyFireLabel>
   <FriendlyFireDesc>If traps should be able to hit friendly pawns</FriendlyFireDesc>
-  <TreatAnimalsDifferentLabel>Treat Animals Different</TreatAnimalsDifferentLabel>
-  <TreatAnimalsDifferentDesc>If animal spring chance should be calculated differently than for pawns</TreatAnimalsDifferentDesc>
-  <UseBodySizeLabel>Use Body Size</UseBodySizeLabel>
-  <UseBodySizeDesc>Use body size in calculation or not</UseBodySizeDesc>
-  <WildAnimalsCanTripLabel>Wild Animals Can Trip</WildAnimalsCanTripLabel>
-  <WildAnimalsCanTripDesc>Let non hostile wild animals be unaware of traps</WildAnimalsCanTripDesc>
+  <TreatAnimalsDifferentLabel>Reduce Animal Spring Chance</TreatAnimalsDifferentLabel>
+  <TreatAnimalsDifferentDesc>By default animals are 10x less likely to spring a trap</TreatAnimalsDifferentDesc>
+  <UseBodySizeLabel>Animal Body Size Matters</UseBodySizeLabel>
+  <UseBodySizeDesc>By default smaller animals have a lower chance to spring the traps</UseBodySizeDesc>
+  <WildAnimalsCanTripLabel>Wild Animals Can Hit Traps</WildAnimalsCanTripLabel>
+  <WildAnimalsCanTripDesc>Let non hostile wild animals no longer be aware of the traps for pathing</WildAnimalsCanTripDesc>
   <SuperSlowTrapsLabel>Super Slow Traps</SuperSlowTrapsLabel>
   <SuperSlowTrapsDesc>Increase the speed reduction effect by 10x</SuperSlowTrapsDesc>
   <TrapsDontSlowLabel>Traps Don't slow</TrapsDontSlowLabel>
