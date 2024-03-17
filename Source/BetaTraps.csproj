@@ -38,16 +38,15 @@
     <None Include="packages.config" />
     <Reference Include="0Harmony, Version=2.3.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Lib.Harmony.2.3.1.1\lib\net472\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="0MultiplayerAPI">
-      <HintPath>..\..\..\..\..\..\..\..\Users\jonth\source\repos\RimWorld-Multiplayer-Compatibility\Assemblies\0MultiplayerAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UnlimitedHugs.Rimworld.HugsLib.10.0.1\lib\net472\HugsLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,11 +62,11 @@
     </None>
     <None Include="..\Common\Languages\English\Keyed\BetaTrapsEnglish.xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -100,8 +99,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)..\Common\Assemblies\BetaTraps.dll" "$(ProjectDir)..\1.5\Assemblies\" /S /C /Y /K /I /Q /D
-del "$(ProjectDir)..\Common\Assemblies\Hugslib*" /q/f
-del "$(ProjectDir)..\Common\Assemblies\0Harmony*" /q/f
-</PostBuildEvent>
+xcopy "$(ProjectDir)..\Common\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\Common\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\1.1\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\1.1\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\1.2\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\1.2\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\1.3\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\1.3\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\1.4\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\1.4\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\1.5\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\1.5\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\About\" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\About\" /S /C /Y /K /I /Q /D
+xcopy "$(ProjectDir)..\LoadFolders.xml" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\BetaTraps_Release\" /S /C /Y /K /I /Q /D</PostBuildEvent>
   </PropertyGroup>
 </Project>

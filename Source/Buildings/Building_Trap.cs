@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse.AI.Group;
 using Verse.Sound;
 using System.Diagnostics;
-using Multiplayer.API;
+//using Multiplayer.API;
 
 namespace BetaTraps
 {
@@ -37,17 +37,22 @@ namespace BetaTraps
             base.ExposeData();
             Scribe_Collections.Look<Pawn>(ref this.touchingPawns, "testees", LookMode.Reference, new object[0]);
         }
-        
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad); 
+            
+            if (this.def.HasModExtension<BetaTrapDefModExtension>())
+            {
+                ArmorPenetrationAmount = this.def.GetModExtension<BetaTrapDefModExtension>().TrapArmorPenetration;
+            }
+        }
+
         public override void Tick()
         {
 
             if (this.Spawned)
             {
-                if (this.def.HasModExtension<BetaTrapDefModExtension>())
-                {
-                    ArmorPenetrationAmount = this.def.GetModExtension<BetaTrapDefModExtension>().TrapArmorPenetration;
-                }
-
                 if (this.Armed)
                 {
                     List<Thing> thingList = base.Position.GetThingList(base.Map);
@@ -202,7 +207,7 @@ namespace BetaTraps
             return text;
         }
         
-        [SyncMethod]
+        //[SyncMethod]
         public void Spring(Pawn p)
         {
             SoundDef.Named("DeadfallSpring").PlayOneShot(new TargetInfo(base.Position, base.Map, false));

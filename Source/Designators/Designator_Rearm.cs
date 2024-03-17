@@ -1,4 +1,4 @@
-﻿using Multiplayer.API;
+﻿//using Multiplayer.API;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -57,7 +57,7 @@ namespace BetaTraps
             return building_TrapRearmable != null && !building_TrapRearmable.Armed && base.Map.designationManager.DesignationOn(building_TrapRearmable, BetaTrapDefOf.RearmTrap) == null;
         }
         
-        [SyncMethod]
+        //[SyncMethod]
         public override void DesignateThing(Thing t)
         {
             base.Map.designationManager.AddDesignation(new Designation(t, BetaTrapDefOf.RearmTrap));

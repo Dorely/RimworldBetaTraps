@@ -1,4 +1,4 @@
-﻿using Multiplayer.API;
+﻿//using Multiplayer.API;
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +10,10 @@ namespace BetaTraps
 {
     public class Building_TrapRearmable : Building_Trap
     {
-        [SyncField]
-        private bool autoRearm;
+        //[SyncField]
+        private bool autoRearm = true;
 
-        [SyncField]
+        //[SyncField]
         private bool armedInt = true;
 
         private Graphic graphicUnarmedInt;
@@ -54,7 +54,7 @@ namespace BetaTraps
             Scribe_Values.Look<bool>(ref this.autoRearm, "autoRearm", false, false);
         }
 
-        [SyncMethod]
+        //[SyncMethod]
         protected override void SpringSub(Pawn p)
         {
             SoundDefOf.TrapSpring.PlayOneShot(new TargetInfo(base.Position, base.Map, false));
@@ -77,7 +77,7 @@ namespace BetaTraps
             return !armedInt && Map.designationManager.AllDesignationsOn(this).Where(i => i.def == BetaTrapDefOf.RearmTrap).FirstOrDefault() == null;
         }
         
-        [SyncMethod]
+        //[SyncMethod]
         public void Rearm()
         {
             this.armedInt = true;
@@ -136,13 +136,13 @@ namespace BetaTraps
             yield break;
         }
 
-        [SyncMethod]
+        //[SyncMethod]
         public void ToggleAutoRearm()
         {
             this.autoRearm = !this.autoRearm;
         }
 
-        [SyncMethod]
+        //[SyncMethod]
         public void AddRearmDesignation()
         {
             base.Map.designationManager.AddDesignation(new Designation(this, BetaTrapDefOf.RearmTrap));

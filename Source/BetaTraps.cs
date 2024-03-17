@@ -1,6 +1,6 @@
 ﻿using HugsLib;
 using HugsLib.Settings;
-using Multiplayer.API;
+//using Multiplayer.API;
 using RimWorld;
 using System;
 using Verse;
@@ -22,17 +22,17 @@ namespace BetaTraps
     }
 
 
-    [StaticConstructorOnStartup]
-    public class BetaTrapsMultiplayerCompat
-    {
-        static BetaTrapsMultiplayerCompat()
-        {
-            if (!MP.enabled)
-                return;
+    //[StaticConstructorOnStartup]
+    //public class BetaTrapsMultiplayerCompat
+    //{
+    //    static BetaTrapsMultiplayerCompat()
+    //    {
+    //        if (!MP.enabled)
+    //            return;
 
-            MP.RegisterAll();
-        }
-    }
+    //        MP.RegisterAll();
+    //    }
+    //}
 
     [StaticConstructorOnStartup]
     public class BetaTrapsSettings
