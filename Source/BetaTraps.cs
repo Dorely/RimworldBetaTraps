@@ -3,6 +3,7 @@ using HugsLib.Settings;
 //using Multiplayer.API;
 using RimWorld;
 using System;
+using UnityEngine;
 using Verse;
 
 namespace BetaTraps
@@ -34,9 +35,16 @@ namespace BetaTraps
     //    }
     //}
 
+
     [StaticConstructorOnStartup]
-    public class BetaTrapsSettings
+    public class BetaTrapsSettings : ModBase
     {
+        public static BetaTrapsSettings Instance { get; private set; }
+
+        private BetaTrapsSettings()
+        {
+            Instance = this;
+        }
 
         public static Func<bool> getFriendlyFireSettingValue;
         public static Func<bool> getAnimalSpringSettingValue;
@@ -46,7 +54,13 @@ namespace BetaTraps
         public static Func<bool> getTrapsDontSlow;
         public static Func<int> getRearmValue;
 
-        static BetaTrapsSettings()
+
+        public override string ModIdentifier
+        {
+            get { return "BetaTraps"; }
+        }
+
+        public override void StaticInitialize()
         {
             InitializeFriendlyFireSetting();
             InitializeAnimalSpringSetting();
@@ -57,15 +71,27 @@ namespace BetaTraps
             InitializeRearmValue();
         }
 
+        //static BetaTrapsSettings()
+        //{
+        //    InitializeFriendlyFireSetting();
+        //    InitializeAnimalSpringSetting();
+        //    InitializeUseBodySizeSetting();
+        //    InitializeWildAnimalsCanTripSetting();
+        //    InitializeSuperSlowTraps();
+        //    InitializeTrapsDontSlow();
+        //    InitializeRearmValue();
+        //}
+
         private static void InitializeFriendlyFireSetting()
         {
+            //GlobalHotkeysSetting = pack.GetHandle("globalHotkeys", "setting_globalHotkeys_label".Translate(), "setting_globalHotkeys_desc".Translate(), true);
             const bool defaultValue = true;
             try
             {
                 ((Action)(() => {
-                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
-                    settings.EntryName = "BetaTraps";
-                    object handle = settings.GetHandle("friendlyFire", "FriendlyFireLabel".Translate(), "FriendlyFireDesc".Translate(), defaultValue);
+                    //var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    //settings.EntryName = "BetaTraps";
+                    object handle = Instance.Settings.GetHandle("friendlyFire", "FriendlyFireLabel".Translate(), "FriendlyFireDesc".Translate(), defaultValue);
                     getFriendlyFireSettingValue = () => (SettingHandle<bool>)handle;
                 }))();
                 return;
