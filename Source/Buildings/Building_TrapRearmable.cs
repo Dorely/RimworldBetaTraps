@@ -18,9 +18,9 @@ namespace BetaTraps
 
         private Graphic graphicUnarmedInt;
 
-        private static readonly FloatRange TrapDamageFactor = new FloatRange(0.7f, 1.3f);
+        private static readonly FloatRange DamageRandomFactorRange = new FloatRange(0.8f, 1.2f);
 
-        private static readonly IntRange DamageCount = new IntRange(1, 2);
+        public const float DamageCount = 5f;
 
 
         public override bool Armed
@@ -85,25 +85,18 @@ namespace BetaTraps
         
         private void DamagePawn(Pawn p)
         {
-            BodyPartHeight height = (Rand.Value >= 0.666f) ? BodyPartHeight.Middle : BodyPartHeight.Top;
-            float num = this.GetStatValue(StatDefOf.TrapMeleeDamage, true) * Building_TrapRearmable.TrapDamageFactor.RandomInRange;
-            float num2 = num / Building_TrapRearmable.DamageCount.RandomInRange;
-
-            
-
-            float armorPenetration = num2 * ArmorPenetrationAmount;
-            int num3 = 0;
-            while ((float)num3 < Building_TrapRearmable.DamageCount.RandomInRange)
+            float num = this.GetStatValue(StatDefOf.TrapMeleeDamage) * DamageRandomFactorRange.RandomInRange;
+            float armorPenetration = num * ArmorPenetrationAmount;
+            for (int i = 0; (float)i < DamageCount; i++)
             {
-                DamageInfo dinfo = new DamageInfo(DamageDefOf.Stab, num2, armorPenetration, -1f, this, null, null, DamageInfo.SourceCategory.ThingOrUnknown, null);
+                DamageInfo dinfo = new DamageInfo(DamageDefOf.Stab, num, armorPenetration, -1f, this);
                 DamageWorker.DamageResult damageResult = p.TakeDamage(dinfo);
-                if (num3 == 0)
+                if (i == 0)
                 {
-                    BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(p, RulePackDefOf.DamageEvent_TrapSpike, null);
+                    BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(p, RulePackDefOf.DamageEvent_TrapSpike);
                     Find.BattleLog.Add(battleLogEntry_DamageTaken);
                     damageResult.AssociateWithLog(battleLogEntry_DamageTaken);
                 }
-                num3++;
             }
         }
         

@@ -1,52 +1,4 @@
 <Defs>
-  <!--This is deprecated and is left in for backwards compatability, use the other one (BetaTraps_TrapDeadfall) for translations and such-->
-  <ThingDef ParentName="BuildingBase">
-    <defName>TrapDeadfall</defName>
-    <label>deadfall trap(deprecated)</label>
-    <thingClass>BetaTraps.Building_TrapRearmable</thingClass>
-    <graphicData>
-      <texPath>Things/Buildings/Security/DeadfallArmed</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <damageData>
-        <rect>(0,0,1,0.15)</rect>
-      </damageData>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <drawerType>RealtimeOnly</drawerType>
-    <rotatable>false</rotatable>
-    <tickerType>Normal</tickerType>
-    <stealable>false</stealable>
-    <statBases>
-      <MaxHitPoints>40</MaxHitPoints>
-      <WorkToBuild>2000</WorkToBuild>
-      <Beauty>-4</Beauty>
-      <TrapMeleeDamage>60</TrapMeleeDamage>
-      <TrapSpringChance>0.8</TrapSpringChance>
-    </statBases>
-    <modExtensions>
-      <li Class="BetaTraps.BetaTrapDefModExtension">
-        <TrapArmorPenetration>0.015</TrapArmorPenetration>
-      </li>
-    </modExtensions>
-    <description>A suspended spiked weight held up by a delicate trigger. When the victim disturbs the trigger, the weight is released and falls on his head or torso.(deprecated)</description>
-    <stuffCategories>
-      <li>Metallic</li>
-      <li>Woody</li>
-      <li>Stony</li>
-    </stuffCategories>
-    <costStuffCount>70</costStuffCount>
-    <building>
-      <isTrap>true</isTrap>
-      <trapDamageCategory>Sharp</trapDamageCategory>
-      <trapUnarmedGraphicData>
-        <texPath>Things/Buildings/Security/DeadfallUnarmed</texPath>
-        <graphicClass>Graphic_Single</graphicClass>
-        <shaderType>Cutout</shaderType>
-      </trapUnarmedGraphicData>
-    </building>
-  </ThingDef>
-
-
   <ThingDef ParentName="BuildingBase">
     <defName>BetaTraps_TrapDeadfall</defName>
     <label>Rearmable Deadfall trap</label>
@@ -78,7 +30,7 @@
     </statBases>
     <modExtensions>
       <li Class="BetaTraps.BetaTrapDefModExtension">
-        <TrapArmorPenetration>0.015</TrapArmorPenetration>
+        <TrapArmorPenetration>0.12</TrapArmorPenetration>
       </li>
     </modExtensions>
     <description>A suspended spiked weight held up by a delicate trigger. When the victim disturbs the trigger, the weight is released and falls on his head or torso.</description>
