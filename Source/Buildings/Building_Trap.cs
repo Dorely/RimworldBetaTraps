@@ -5,6 +5,7 @@ using UnityEngine;
 using Verse.AI.Group;
 using Verse.Sound;
 using System.Diagnostics;
+using RimWorld.Planet;
 //using Multiplayer.API;
 
 namespace BetaTraps
@@ -82,6 +83,10 @@ namespace BetaTraps
         protected virtual float SpringChance(Pawn p)
         {
             float num;
+
+            if (p.kindDef.immuneToTraps && BetaTrapsSettings.getTrapsHonorImmunity())
+                return 0.0f;
+
             if (this.KnowsOfTrap(p))
             {
                 num = 0.004f;
@@ -126,9 +131,12 @@ namespace BetaTraps
                 }
             }
         }
-        
+
         public bool KnowsOfTrap(Pawn p)
         {
+            if (p.kindDef.immuneToTraps && BetaTrapsSettings.getImmunesKnowOfTraps())
+                return true;
+
             if (p.Faction != null && !p.Faction.HostileTo(base.Faction))
             {
                 return true;

@@ -52,6 +52,8 @@ namespace BetaTraps
         public static Func<bool> getWildAnimalsCanTripValue;
         public static Func<bool> getSuperSlowTraps;
         public static Func<bool> getTrapsDontSlow;
+        public static Func<bool> getTrapsHonorImmunity;
+        public static Func<bool> getImmunesKnowOfTraps;
         public static Func<int> getRearmValue;
 
 
@@ -68,6 +70,8 @@ namespace BetaTraps
             InitializeWildAnimalsCanTripSetting();
             InitializeSuperSlowTraps();
             InitializeTrapsDontSlow();
+            InitializeTrapsHonorImmunity();
+            InitializeImmunesKnowOfTraps();
             InitializeRearmValue();
         }
 
@@ -195,6 +199,44 @@ namespace BetaTraps
             {
             }
             getTrapsDontSlow = () => defaultValue;
+        }
+
+        private static void InitializeTrapsHonorImmunity()
+        {
+            const bool defaultValue = true;
+            try
+            {
+                ((Action)(() => {
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
+                    object handle = settings.GetHandle("trapsHonorImmunity", "TrapsHonorImmunityLabel".Translate(), "TrapsHonorImmunityDesc".Translate(), defaultValue);
+                    getTrapsHonorImmunity = () => (SettingHandle<bool>)handle;
+                }))();
+                return;
+            }
+            catch (TypeLoadException)
+            {
+            }
+            getTrapsHonorImmunity = () => defaultValue;
+        }
+
+        private static void InitializeImmunesKnowOfTraps()
+        {
+            const bool defaultValue = false;
+            try
+            {
+                ((Action)(() => {
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
+                    object handle = settings.GetHandle("immunesKnowOfTraps", "ImmunesKnowOfTrapsLabel".Translate(), "ImmunesKnowOfTrapsDesc".Translate(), defaultValue);
+                    getImmunesKnowOfTraps = () => (SettingHandle<bool>)handle;
+                }))();
+                return;
+            }
+            catch (TypeLoadException)
+            {
+            }
+            getTrapsHonorImmunity = () => defaultValue;
         }
 
         private static void InitializeRearmValue()

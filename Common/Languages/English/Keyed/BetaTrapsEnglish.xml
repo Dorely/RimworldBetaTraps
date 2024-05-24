@@ -24,6 +24,10 @@
   <SuperSlowTrapsDesc>Increase the speed reduction effect by 10x</SuperSlowTrapsDesc>
   <TrapsDontSlowLabel>Traps Don't slow</TrapsDontSlowLabel>
   <TrapsDontSlowDesc>Removes the speed reduction caused by active traps</TrapsDontSlowDesc>
+  <TrapsHonorImmunityLabel>Traps Immunity Matters</TrapsHonorImmunityLabel>
+  <TrapsHonorImmunityDesc>If an entity that is immune to traps should be immune to these traps too</TrapsHonorImmunityDesc>
+  <ImmunesKnowOfTrapsLabel>Trap Immune Entities Know About Traps</ImmunesKnowOfTrapsLabel>
+  <ImmunesKnowOfTrapsDesc>If an entity that is immune to traps should know about them and try to avoid them</ImmunesKnowOfTrapsDesc>
   <RearmTicksLabel>Rearm Speed</RearmTicksLabel>
   <RearmTicksDesc>Amount of ticks taken to rearm a trap</RearmTicksDesc>
 </LanguageData>
