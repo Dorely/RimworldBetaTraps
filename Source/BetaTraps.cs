@@ -1,10 +1,12 @@
-﻿using HugsLib;
+﻿using HarmonyLib;
+using HugsLib;
 using HugsLib.Settings;
 //using Multiplayer.API;
 using RimWorld;
 using System;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace BetaTraps
 {
@@ -23,17 +25,21 @@ namespace BetaTraps
     }
 
 
-    //[StaticConstructorOnStartup]
-    //public class BetaTrapsMultiplayerCompat
-    //{
-    //    static BetaTrapsMultiplayerCompat()
-    //    {
-    //        if (!MP.enabled)
-    //            return;
-
-    //        MP.RegisterAll();
-    //    }
-    //}
+    [HarmonyPatch(typeof(HaulAIUtility), "HaulablePlaceValidator")]
+    static class HaulAIUtility_HaulablePlaceValidator_Patches
+    {
+        static void Postfix(Thing haulable, Pawn worker, IntVec3 c, ref bool __result)
+        {
+            if (__result == true)
+            {
+                Building edifice = c.GetEdifice(worker.Map);
+                if (edifice != null && edifice is BetaTraps.Building_Trap)
+                {
+                    __result = false;
+                }
+            }
+        }
+    }
 
 
     [StaticConstructorOnStartup]
