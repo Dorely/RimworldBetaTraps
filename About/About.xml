@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>BetaTraps</name>
-  <author>Dorely</author>
-  <packageId>Dorely.BetaTraps</packageId>
-  <description>Add back in the rearmable deadfall traps from b18</description>
-  <url>https://steamcommunity.com/profiles/76561198799763866/myworkshopfiles/?appid=294100</url>
-  <supportedVersions>
-    <li>1.0</li>
-    <li>1.1</li>
-    <li>1.2</li>
-    <li>1.3</li>
-	<li>1.4</li>
-	<li>1.5</li>
-  </supportedVersions>
-  <modDependencies>
-    <li>
-	  <packageId>UnlimitedHugs.HugsLib</packageId>
-	  <displayName>HugsLib</displayName>
-	  <downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases/latest</downloadUrl>
-	  <steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
-	</li>
+	<name>BetaTraps</name>
+	<author>Dorely</author>
+	<packageId>Dorely.BetaTraps</packageId>
+	<description>Add back in the rearmable deadfall traps from b18</description>
+	<url>https://steamcommunity.com/profiles/76561198799763866/myworkshopfiles/?appid=294100</url>
+	<supportedVersions>
+		<li>1.0</li>
+		<li>1.1</li>
+		<li>1.2</li>
+		<li>1.3</li>
+		<li>1.4</li>
+		<li>1.5</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>UnlimitedHugs.HugsLib</packageId>
+			<displayName>HugsLib</displayName>
+			<downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases/latest</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+		</li>
 	</modDependencies>
-  <loadAfter>
-    <li>UnlimitedHugs.HugsLib</li>
-  </loadAfter>
+	<loadAfter>
+		<li>UnlimitedHugs.HugsLib</li>
+	</loadAfter>
 </ModMetaData>
