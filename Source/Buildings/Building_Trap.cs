@@ -10,7 +10,7 @@ using RimWorld.Planet;
 
 namespace BetaTraps
 {
-    public abstract class Building_Trap : Building
+    public abstract class Building_Trap : Building, IPathFindCostProvider
     {
         protected abstract void SpringSub(Pawn p);
         
@@ -49,7 +49,7 @@ namespace BetaTraps
             }
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
 
             if (this.Spawned)
@@ -157,7 +157,7 @@ namespace BetaTraps
             return p.RaceProps.Humanlike && lord != null && lord.LordJob is LordJob_FormAndSendCaravan;
         }
         
-        public override ushort PathFindCostFor(Pawn p)
+        public ushort PathFindCostFor(Pawn p)
         {
             if (!this.Armed)
             {
@@ -234,6 +234,8 @@ namespace BetaTraps
             yield return new StatDrawEntry(StatCategoryDefOf.Building, "TrapArmorPenetration".Translate(), ArmorPenetrationAmount.ToStringPercent(), ArmorPenetrationAmount.ToStringPercent(), 0);
 
         }
+
+        public CellRect GetOccupiedRect() => this.OccupiedRect();
     }
 
 }

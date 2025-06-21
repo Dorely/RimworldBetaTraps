@@ -81,26 +81,14 @@ namespace BetaTraps
             InitializeRearmValue();
         }
 
-        //static BetaTrapsSettings()
-        //{
-        //    InitializeFriendlyFireSetting();
-        //    InitializeAnimalSpringSetting();
-        //    InitializeUseBodySizeSetting();
-        //    InitializeWildAnimalsCanTripSetting();
-        //    InitializeSuperSlowTraps();
-        //    InitializeTrapsDontSlow();
-        //    InitializeRearmValue();
-        //}
-
         private static void InitializeFriendlyFireSetting()
         {
-            //GlobalHotkeysSetting = pack.GetHandle("globalHotkeys", "setting_globalHotkeys_label".Translate(), "setting_globalHotkeys_desc".Translate(), true);
             const bool defaultValue = true;
             try
             {
                 ((Action)(() => {
-                    //var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
-                    //settings.EntryName = "BetaTraps";
+                    var settings = HugsLibController.Instance.Settings.GetModSettings("BetaTraps");
+                    settings.EntryName = "BetaTraps";
                     object handle = Instance.Settings.GetHandle("friendlyFire", "FriendlyFireLabel".Translate(), "FriendlyFireDesc".Translate(), defaultValue);
                     getFriendlyFireSettingValue = () => (SettingHandle<bool>)handle;
                 }))();

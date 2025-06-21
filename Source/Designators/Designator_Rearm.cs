@@ -21,15 +21,9 @@ namespace BetaTraps
             this.soundSucceeded = SoundDefOf.Designate_Claim;
             //this.hotKey = KeyBindingDefOf.Misc7;
         }
-        
-        public override int DraggableDimensions
-        {
-            get
-            {
-                return 2;
-            }
-        }
-        
+
+        public override DrawStyleCategoryDef DrawStyleCategory => DrawStyleCategoryDefOf.FilledRectangle;
+
         public override AcceptanceReport CanDesignateCell(IntVec3 c)
         {
             if (!c.InBounds(base.Map))
