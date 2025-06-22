@@ -87,15 +87,19 @@ namespace BetaTraps
         {
             float num = this.GetStatValue(StatDefOf.TrapMeleeDamage) * DamageRandomFactorRange.RandomInRange;
             float armorPenetration = num * ArmorPenetrationAmount;
+            Log.Message($"[BetaTraps] Trap at {this.Position} damaging pawn {p.LabelShort} (ID: {p.ThingID}) for {num:F2} damage, armorPen: {armorPenetration:F2}, armed: {this.armedInt}");
+
             for (int i = 0; (float)i < DamageCount; i++)
             {
-                DamageInfo dinfo = new DamageInfo(DamageDefOf.Stab, num, armorPenetration, -1f, this);
-                DamageWorker.DamageResult damageResult = p.TakeDamage(dinfo);
+                //DamageInfo dinfo = new DamageInfo(DamageDefOf.Stab, num, armorPenetration, -1f, this);
+                //DamageWorker.DamageResult damageResult = p.TakeDamage(dinfo);
+                Log.Message($"[BetaTraps] Damage instance {i + 1}/{DamageCount} applied to {p.LabelShort} (ID: {p.ThingID}).");
+
                 if (i == 0)
                 {
                     BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(p, RulePackDefOf.DamageEvent_TrapSpike);
                     Find.BattleLog.Add(battleLogEntry_DamageTaken);
-                    damageResult.AssociateWithLog(battleLogEntry_DamageTaken);
+                    //damageResult.AssociateWithLog(battleLogEntry_DamageTaken);
                 }
             }
         }
