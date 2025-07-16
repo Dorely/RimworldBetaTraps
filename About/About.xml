@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>BetaTraps_local</name>
+	<name>BetaTraps</name>
 	<author>Dorely</author>
 	<packageId>Dorely.BetaTraps</packageId>
 	<description>Add back in the rearmable deadfall traps from b18</description>
